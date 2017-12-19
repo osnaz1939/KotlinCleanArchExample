@@ -8,13 +8,20 @@ import com.example.alexmets.kotlincleanarchexample.reactivex.AbstractTransformer
 import io.reactivex.functions.Function
 
 class Transformers {
-    @CheckResult
-    fun getProducts(): Function<Response<SomeJacksonModel>, SomeCleanModel> {
+
+    fun getProducts(): (Response<SomeJacksonModel>) -> SomeCleanModel {
         return { response: Response<SomeJacksonModel> ->
             val result = response.result()
-            AbstractTransformers.list(SomeDataTransformersFactory.jaccksonToCleanModel()).apply(result)
+            val cleanResult:SomeCleanModel=jaccksonToCleanModel(result)
+            cleanResult
         }
     }
+
+    private fun jaccksonToCleanModel(t:SomeJacksonModel): SomeCleanModel {
+            val r  =SomeCleanModel(t.mString,t.mInt)
+            return r
+    }
+
 
     private fun Transformers(){
         // No instances

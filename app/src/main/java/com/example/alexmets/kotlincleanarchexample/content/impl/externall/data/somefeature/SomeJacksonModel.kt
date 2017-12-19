@@ -2,7 +2,7 @@ package com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class SomeJacksonModel(@JsonProperty("mInt") private final var mInt: Int,
-                                     @JsonProperty("mString") private final var mString: String?) {
+data class SomeJacksonModel(@JsonProperty("mInt") final var mInt: Int,
+                            @JsonProperty("mString") final var mString: String?) {
 
 }
