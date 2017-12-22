@@ -22,7 +22,7 @@ class SomePresenter : Presenter{
 //        if (!subscription.isUnsubscribed()) {
 //            subscription.unsubscribe();
 //        }
-//        var subscription :Subscription=model.getProducts()
+        var subscription :Subscription=model.getProducts()
 
 
 
