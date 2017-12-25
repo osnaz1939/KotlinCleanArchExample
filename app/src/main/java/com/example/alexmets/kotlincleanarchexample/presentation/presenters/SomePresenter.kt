@@ -2,12 +2,19 @@ package com.example.alexmets.kotlincleanarchexample.presentation.presenters
 
 import android.view.View
 import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.Transformers
-import rx.lang.kotlin.toSingletonObservable
+
 import rx.Subscription
 import java.util.*
 
 
 class SomePresenter : Presenter{
+    override fun onSavedState() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onRestoreState() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private val model = Transformers()
 

@@ -6,6 +6,7 @@ import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.s
 import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.somefeature.SomeResponseDTO
 import com.example.alexmets.kotlincleanarchexample.reactivex.AbstractTransformers
 import io.reactivex.functions.Function
+import rx.Observable
 
 class Transformers {
 
@@ -22,6 +23,11 @@ class Transformers {
             return r
     }
 
+    fun getRepoList(name: String): Observable<List<RepositoryDTO>> {
+        return apiInterface
+                .getRepositories(name)
+                .compose(applySchedulers<T>())
+    }
 
     private fun Transformers(){
         // No instances
