@@ -10,9 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.alexmets.kotlincleanarchexample.R
+import com.example.alexmets.kotlincleanarchexample.content.data.somefeature.SomeCleanModel
+import com.example.alexmets.kotlincleanarchexample.presentation.presenters.IView
+import com.example.alexmets.kotlincleanarchexample.presentation.presenters.SomePresenter
 
 import com.example.alexmets.kotlincleanarchexample.presentation.ui.dummy.DummyContent
 import com.example.alexmets.kotlincleanarchexample.presentation.ui.dummy.DummyContent.DummyItem
+import javax.inject.Inject
 
 /**
  * A fragment representing a list of Items.
@@ -20,7 +24,14 @@ import com.example.alexmets.kotlincleanarchexample.presentation.ui.dummy.DummyCo
  * Activities containing this fragment MUST implement the [OnListFragmentInteractionListener]
  * interface.
  */
-class ItemFragment : Fragment() {
+class ItemFragment : Fragment(),IView {
+
+    @Inject
+    protected val presenter : SomePresenter
+
+    override fun showList(someList: List<SomeCleanModel>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     // TODO: Customize parameters
     private var mColumnCount = 1

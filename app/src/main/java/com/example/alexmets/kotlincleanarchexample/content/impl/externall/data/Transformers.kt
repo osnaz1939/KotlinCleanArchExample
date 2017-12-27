@@ -7,15 +7,14 @@ import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.s
 import com.example.alexmets.kotlincleanarchexample.reactivex.AbstractTransformers
 import io.reactivex.functions.Function
 import rx.Observable
+import rx.Single
 
 class Transformers {
 
-    fun getProducts(): (Response<SomeJacksonModel>) -> SomeCleanModel {
-        return { response: Response<SomeJacksonModel> ->
+    fun getData(response:Response<SomeJacksonModel>):SomeCleanModel {
             val result = response.result()
             val cleanResult:SomeCleanModel=jaccksonToCleanModel(result)
-            cleanResult
-        }
+            return cleanResult
     }
 
     private fun jaccksonToCleanModel(t:SomeJacksonModel): SomeCleanModel {
@@ -23,11 +22,12 @@ class Transformers {
             return r
     }
 
-    fun getRepoList(name: String): Observable<List<RepositoryDTO>> {
-        return apiInterface
-                .getRepositories(name)
-                .compose(applySchedulers<T>())
-    }
+//    fun getRepoList(name: String): Observable<List<RepositoryDTO>> {
+//        return apiInterface
+//                .getRepositories(name)
+//                .compose(applySchedulers<T>())
+//    }
+
 
     private fun Transformers(){
         // No instances

@@ -1,6 +1,8 @@
-package com.example.alexmets.kotlincleanarchexample.content.impl.externall.data
+package com.example.alexmets.kotlincleanarchexample.content.impl.externall
 
 import com.example.alexmets.kotlincleanarchexample.content.data.somefeature.SomeCleanModel
+import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.Response
+import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.somefeature.SomeJacksonModel
 import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.somefeature.SomeRequestDTO
 import io.reactivex.Single
 import retrofit2.http.Body
@@ -11,5 +13,5 @@ interface SomeDataApi {
 
     @Headers("Content-Type: application/json;charset=UTF-8")
     @POST("/api/rest/product/getProducts")
-    abstract fun getSomeData(@Body body: SomeRequestDTO): Single<SomeCleanModel>
+     fun getSomeData(@Body body: SomeRequestDTO): Single<Response<SomeJacksonModel>>
 }
