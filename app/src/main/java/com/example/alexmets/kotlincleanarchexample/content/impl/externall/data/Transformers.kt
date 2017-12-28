@@ -1,15 +1,15 @@
 package com.example.alexmets.kotlincleanarchexample.content.impl.externall.data
 
-import android.support.annotation.CheckResult
 import com.example.alexmets.kotlincleanarchexample.content.data.somefeature.SomeCleanModel
 import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.somefeature.SomeJacksonModel
-import com.example.alexmets.kotlincleanarchexample.content.impl.externall.data.somefeature.SomeResponseDTO
-import com.example.alexmets.kotlincleanarchexample.reactivex.AbstractTransformers
-import io.reactivex.functions.Function
-import rx.Observable
-import rx.Single
+import com.example.alexmets.kotlincleanarchexample.di.DataSourceModule
+import javax.inject.Inject
 
+@DataSourceModule.FirstScope
 class Transformers {
+
+    @Inject
+    constructor()
 
     fun getData(response:Response<SomeJacksonModel>):SomeCleanModel {
             val result = response.result()
@@ -21,13 +21,6 @@ class Transformers {
             val r  =SomeCleanModel(t.mString,t.mInt)
             return r
     }
-
-//    fun getRepoList(name: String): Observable<List<RepositoryDTO>> {
-//        return apiInterface
-//                .getRepositories(name)
-//                .compose(applySchedulers<T>())
-//    }
-
 
     private fun Transformers(){
         // No instances

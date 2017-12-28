@@ -27,7 +27,7 @@ import javax.inject.Inject
 class ItemFragment : Fragment(),IView {
 
     @Inject
-    protected val presenter : SomePresenter
+    lateinit var presenter : SomePresenter
 
     override fun showList(someList: List<SomeCleanModel>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

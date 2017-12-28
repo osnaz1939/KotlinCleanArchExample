@@ -10,7 +10,7 @@ import javax.inject.Singleton
 import dagger.Component
 
 @Singleton
-@Component(modules = arrayOf(ModelModule::class, PresenterModule::class, ViewModule::class))
+@Component(modules = arrayOf(PresenterModule::class, ViewModule::class,AppModule::class, DataSourceModule::class))
 interface AppComponent {
     abstract fun inject(dataRepository: DefaultRepository)
     abstract fun inject(externalData: DefaultExternalDatasource)
